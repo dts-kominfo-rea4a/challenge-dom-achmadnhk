@@ -47,17 +47,19 @@
         let output = document.createTextNode(input.value);
         li.appendChild(output);
         todo.appendChild(li);
+        let button = document.getElementById('todo-input');
         
-        const fungsiUntukTombolEnter = (event) => {
-          const tombolYangDitekan = event.key;
-          let button;
-          if (tombolYangDitekan === 'Enter') {
-            button = fnClickHandler;
-          } else { button = 'bukan enter';}
+          input.addEventListener('keypress', function(event) {
+            if (event.key === 'Enter') {
+              event.preventDefault();
+              document.getElementById('fnClickHandler').fnClickHandler();
+            }
+          })
+          
         }
-        todo.innerHTML = `${button}`;
+        
 
-      }; document.addEventListener('keypress', fungsiUntukTombolEnter);
+       
 
       // TODO: register event onclick / addEventListener untuk button
       // akan menjalankan fungsi fnClickHandler
