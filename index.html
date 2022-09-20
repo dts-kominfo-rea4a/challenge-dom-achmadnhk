@@ -8,6 +8,18 @@
   </head>
   <body>
     <div id="app">
+      <div class='container'>
+        <h1 class='todo-title'> To Do </h1>
+        <h2 class='todo-subtitle'> ~Today I Need To~ </h2>
+      <div class="container">
+        <form>
+          <input type='text' id='todo-input'> 
+          <button id='todo-submit'  onclick="fnClickHandler()">Submit</button>
+          
+          
+        </form>
+            <ul id='todo-output'>
+            </ul>
       <!-- TODO: Buatlah sebuah header dengan id todo-title -->
       <!-- TODO: Buatlah sebuah subtitle dengan id todo-subtitle -->
 
@@ -25,11 +37,18 @@
       let button;
       let input;
       let output;
+      const todo = document.getElementById('todo-output')
 
       // TODO: Buatlah sebuah fungsi dengan nama fnClickHandler
       // Fungsi yang digunakan untuk menambahkan tulisan
       // Jangan ubah cara deklarasi fungsinya, cukup isi saja
-      function fnClickHandler(toDoItem) {}
+      function fnClickHandler() {
+        let input = document.getElementById('todo-input')
+        let li = document.createElement('li')
+        let output = document.createTextNode(input.value)
+        li.appendChild(output)
+        todo.appendChild(li)
+      }
 
       // TODO: register event onclick / addEventListener untuk button
       // akan menjalankan fungsi fnClickHandler
