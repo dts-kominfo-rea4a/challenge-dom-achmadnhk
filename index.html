@@ -34,21 +34,30 @@
     <!-- ! Untuk tantangan ini, script jangan diubah ke external js yah ! -->
     <script>
       // TODO: Deklarasi variable sesuai dengan kebutuhan di sini
-      let button;
-      let input;
-      let output;
-      const todo = document.getElementById('todo-output')
+      
+      const todo = document.getElementById('todo-output');
+      
 
       // TODO: Buatlah sebuah fungsi dengan nama fnClickHandler
       // Fungsi yang digunakan untuk menambahkan tulisan
       // Jangan ubah cara deklarasi fungsinya, cukup isi saja
       function fnClickHandler() {
-        let input = document.getElementById('todo-input')
-        let li = document.createElement('li')
-        let output = document.createTextNode(input.value)
-        li.appendChild(output)
-        todo.appendChild(li)
-      }
+        let input = document.getElementById('todo-input');
+        let li = document.createElement('li');
+        let output = document.createTextNode(input.value);
+        li.appendChild(output);
+        todo.appendChild(li);
+        
+        const fungsiUntukTombolEnter = (event) => {
+          const tombolYangDitekan = event.key;
+          let button;
+          if (tombolYangDitekan === 'Enter') {
+            button = fnClickHandler;
+          } else { button = 'bukan enter';}
+        }
+        todo.innerHTML = `${button}`;
+
+      }; document.addEventListener('keypress', fungsiUntukTombolEnter);
 
       // TODO: register event onclick / addEventListener untuk button
       // akan menjalankan fungsi fnClickHandler
