@@ -47,13 +47,14 @@
         let output = document.createTextNode(input.value);
         li.appendChild(output);
         todo.appendChild(li);
+        let inputEnter = document.getElementById('todo-input')
         let button = document.createElement('li');
-        li.appendChild(output);
-        todo.appendChild(li);
+        button.appendChild(output);
+        todo.appendChild(button);
         
           button.addEventListener('keypress', function(event) {
             if (event.key === 'Enter') {
-              ;
+              event.preventDefault();
               document.getElementById('fnClickHandler').fnClickHandler();
             }
           })
